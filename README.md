@@ -1,70 +1,187 @@
-# Getting Started with Create React App
+# Would You Rather
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+The **Would You Rather** project is a web application built with React that allows users to participate in polling questions. Users can create, view, and answer "Would You Rather" questions. The app is designed with a user-friendly interface and is powered by Redux for state management.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- User authentication
+- Creation of new polls
+- Viewing of answered and unanswered polls
+- Leaderboard displaying user rankings
+- Responsive design with Ant Design components
+- Error handling with a user-friendly NoMatch page for invalid routes
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React
+- React Router
+- Redux
+- Ant Design
+- Jest for testing
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- Node.js (v14 or higher)
+- npm (v6 or higher)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   git clone https://github.com/yourusername/would-you-rather.git
+   Navigate into the project directory:
+   ```
 
-### `npm run eject`
+bash
+Copy code
+cd would-you-rather
+Install the dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+bash
+Copy code
+npm install
+Running the Application
+To start the development server, run:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+bash
+Copy code
+npm start
+Open your browser and go to http://localhost:3000 to view the application.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Running Tests
+This project uses Jest for testing. To run the tests, use the following command:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+bash
+Copy code
+npm test
+You can run tests in watch mode by pressing W during the test run.
 
-## Learn More
+Folder Structure
+bash
+Copy code
+/would-you-rather
+├── /public
+├── /src
+│ ├── /components
+│ │ ├── Navbar
+│ │ ├── PollQuestion
+│ │ └── UserCard
+│ ├── /pages
+│ │ ├── Home
+│ │ ├── NewPollPage
+│ │ ├── LeaderBoardPage
+│ │ ├── LoginPage
+│ │ └── NoMatch
+│ ├── /redux
+│ │ ├── actions.js
+│ │ └── reducers.js
+│ ├── /services
+│ │ └── \_DATA.js
+│ ├── App.js
+│ └── index.js
+└── package.json
+Usage
+Login: Users can log in to the application. If they are not authenticated, they will be redirected to the login page.
+Create Poll: Authenticated users can create new "Would You Rather" questions.
+Answer Polls: Users can view and answer existing polls.
+Leaderboard: Users can see the leaderboard ranking based on the number of answered polls.
+Contributing
+Contributions are welcome! If you'd like to contribute, please fork the repository and submit a pull request.# Would You Rather
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Overview
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The **Would You Rather** project is a web application built with React that allows users to participate in polling questions. Users can create, view, and answer "Would You Rather" questions. The app is designed with a user-friendly interface and is powered by Redux for state management.
 
-### Code Splitting
+## Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- User authentication
+- Creation of new polls
+- Viewing of answered and unanswered polls
+- Leaderboard displaying user rankings
+- Responsive design with Ant Design components
+- Error handling with a user-friendly NoMatch page for invalid routes
 
-### Analyzing the Bundle Size
+## Technologies Used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- React
+- React Router
+- Redux
+- Ant Design
+- Jest for testing
 
-### Making a Progressive Web App
+## Getting Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Prerequisites
 
-### Advanced Configuration
+- Node.js (v14 or higher)
+- npm (v6 or higher)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Installation
 
-### Deployment
+1. Clone the repository:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+   ```bash
+   git clone https://github.com/yourusername/would-you-rather.git
+   Navigate into the project directory:
+   ```
 
-### `npm run build` fails to minify
+bash
+Copy code
+cd would-you-rather
+Install the dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+bash
+Copy code
+npm install
+Running the Application
+To start the development server, run:
+
+bash
+Copy code
+npm start
+Open your browser and go to http://localhost:3000 to view the application.
+
+Running Tests
+This project uses Jest for testing. To run the tests, use the following command:
+
+bash
+Copy code
+npm test
+You can run tests in watch mode by pressing W during the test run.
+
+Folder Structure
+bash
+Copy code
+/would-you-rather
+├── /public
+├── /src
+│ ├── /components
+│ │ ├── Navbar
+│ │ ├── PollQuestion
+│ │ └── UserCard
+│ ├── /pages
+│ │ ├── Home
+│ │ ├── NewPollPage
+│ │ ├── LeaderBoardPage
+│ │ ├── LoginPage
+│ │ └── NoMatch
+│ ├── /redux
+│ │ ├── actions.js
+│ │ └── reducers.js
+│ ├── /services
+│ │ └── \_DATA.js
+│ ├── App.js
+│ └── index.js
+└── package.json
+Usage
+Login: Users can log in to the application. If they are not authenticated, they will be redirected to the login page.
+Create Poll: Authenticated users can create new "Would You Rather" questions.
+Answer Polls: Users can view and answer existing polls.
+Leaderboard: Users can see the leaderboard ranking based on the number of answered polls.
+Contributing
+Contributions are welcome! If you'd like to contribute, please fork the repository and submit a pull request.
