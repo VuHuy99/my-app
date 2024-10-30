@@ -1,0 +1,32 @@
+/* Ensure that your CSS file is correctly loaded and applied */
+
+.nav {
+  display: flex;
+  margin-top: 3%;
+}
+.nav a {
+  color: black !important;
+}
+.nav .ant-tabs {
+  width: 80%;
+}
+.ant-tabs-extra-content {
+  padding: 5px;
+}
+.nav .ant-tabs-tab-active a {
+  color: #f27222 !important; /* Active tab text color */
+}
+
+.nav .ant-tabs-ink-bar {
+  background: #f27222 !important; /* Tab underline color */
+}
+
+.nav .ant-tabs-nav {
+  width: 100%; /* Adjust the width as needed */
+  justify-content: space-around !important;
+  display: flex !important;
+  .ant-btn-primary {
+    background-color: #0c69b2; /* Custom background color */
+    border-color: #0c69b2; /* Custom border color */
+  }
+}
