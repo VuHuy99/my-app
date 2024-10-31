@@ -51,7 +51,7 @@ function App() {
     }
 
     dispatch(logoutUser());
-  }, [performance.navigation.type === 1]);
+  }, [performance?.navigation?.type === 1]);
 
   useEffect(() => {
     if (authedUser) {
