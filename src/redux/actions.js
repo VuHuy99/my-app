@@ -19,7 +19,10 @@ export const loginUser = (user) => ({
   type: LOGIN_USER,
   user,
 });
-
+export const setBadId = (badId) => ({
+  type: "SET_BAD_ID",
+  badId,
+});
 export const logoutUser = () => ({
   type: LOGOUT_USER,
 });

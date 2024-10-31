@@ -31,7 +31,7 @@ const Home = () => {
   const filteredQuestions = questions.filter((q) => {
     // Check if authUser has answers
 
-    if (authUser?.id == "" || authUser?.answers?.length === 0) {
+    if (authUser?.id === "" || authUser?.answers?.length === 0) {
       return false;
     }
 

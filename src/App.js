@@ -1,26 +1,27 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Import Routes instead of Switch
+import { Route, Routes, useLocation } from "react-router-dom"; // Import Routes instead of Switch
 import HomePage from "./pages/Home/Home";
 import NewPollPage from "./pages/NewPollPage/NewPollPage";
 import LeaderBoardPage from "./pages/LeaderBoardPage/LeaderBoardPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NoMatch from "./pages/NoMatch/NoMatch";
-
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Navbar from "./components/Navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { _getUsers, _getQuestions } from "./services/_DATA";
-import { setUsers, setPolls } from "./redux/actions";
+import { setUsers, setPolls, logoutUser, setBadId } from "./redux/actions";
 import PollQuestion from "./components/PollQuestion/PollQuestion";
 import { useParams } from "react-router-dom";
 import { Spin } from "antd";
 import "./App.css";
-
 function App() {
   const authedUser = useSelector((state) => state.provider.authedUser);
+  const questions = useSelector((state) => state.provider.polls);
+  const users = useSelector((state) => state.provider.users);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [authedUserState, setAuthedUserState] = useState("");
-
+  const location = useLocation();
   useEffect(() => {
     _getUsers().then((users) => {
       dispatch(setUsers(users));
@@ -29,6 +30,28 @@ function App() {
       dispatch(setPolls(questions));
     });
   }, [dispatch]);
+
+  useEffect(() => {
+    const currentPath = location.pathname;
+    // Check for exact matches
+
+    // If route is "/questions", check for "/questions/:question_id"
+    if (currentPath.startsWith("/questions/")) {
+      const questionId = currentPath.slice(11);
+      const question =
+        questions && questions[questionId] ? questions[questionId] : {};
+      const author = question ? users[question.author] : null;
+      console.log(currentPath);
+      console.log(questionId);
+      console.log(author);
+      if (!author) {
+        console.log("badi");
+        dispatch(setBadId(true));
+      }
+    }
+
+    dispatch(logoutUser());
+  }, [performance.navigation.type === 1]);
 
   useEffect(() => {
     if (authedUser) {
@@ -59,7 +82,6 @@ function App() {
             <Route path="*" element={<NoMatch />} />
             <Route path="/newpoll" element={<NewPollPage />} />
             <Route path="/leaderboard" element={<LeaderBoardPage />} />
-            <Route path="/nomatch" element={<NoMatch />} />
           </Routes>
         </Fragment>
       )}

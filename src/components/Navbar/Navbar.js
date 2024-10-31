@@ -39,7 +39,6 @@ const Navbar = () => {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logoutUser());
-    navigate("/");
   };
 
   const handleOnChange = (key) => {
@@ -103,7 +102,7 @@ const Navbar = () => {
   return (
     <nav className="nav">
       <Tabs
-        defaultActiveKey={undefined}
+        defaultActiveKey={keyinit}
         items={items}
         onChange={handleOnChange}
         tabBarExtraContent={OperationsSlot}

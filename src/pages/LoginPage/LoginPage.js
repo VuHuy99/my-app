@@ -2,21 +2,19 @@
 import { Col, Row, Button } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setAuthedUser } from "../../redux/actions";
+import { setAuthedUser, setBadId } from "../../redux/actions";
 import { Select } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./LoginPage.css";
-
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Hook to programmatically navigate
   const [usersOption, setUsersOption] = useState([]);
   const [selectedUser, setSelectedUser] = useState("");
-
   // Get the users from the Redux store
   const usersSelector = useSelector((state) => state.provider.users);
 
   // Populate the user options for the dropdown
+
   useEffect(() => {
     if (usersSelector) {
       const listUser = Object.values(usersSelector).map((user) => ({
@@ -43,7 +41,6 @@ const LoginPage = () => {
 
     if (user) {
       dispatch(setAuthedUser({ id: user, answer: [] }));
-      navigate("/");
     }
   };
 

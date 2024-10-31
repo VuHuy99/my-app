@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
-
+import { useDispatch } from "react-redux";
+import { setBadId } from "../../redux/actions";
 export const NoMatch = () => {
   const navigate = useNavigate(); // Hook to programmatically navigate
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setBadId(false));
+  }, []);
   return (
     <div textAlign="center" style={{ marginTop: "50px" }}>
       <h1 as="h1">404 - Page Not Found</h1>

@@ -6,6 +6,7 @@ const initialState = {
     id: "",
     answers: [],
   },
+  badId: false,
 };
 export const providerReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -19,6 +20,8 @@ export const providerReducer = (state = initialState, action) => {
       return { ...state, polls: action.polls };
     case "SET_AUTHED_USER":
       return { ...state, authedUser: action.authedUser };
+    case "SET_BAD_ID":
+      return { ...state, badId: action.badId };
     default:
       return state;
   }

@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { Card, Radio, Button, Avatar, Spin, Progress } from "antd";
 import { UserOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import { setAuthedUser, setPolls } from "../../redux/actions";
+import { logoutUser } from "../../redux/actions";
+import { setBadId } from "../../redux/actions";
 const PollQuestion = ({ questionId }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -11,10 +13,10 @@ const PollQuestion = ({ questionId }) => {
   const [hasVote, setHasVote] = useState(false);
 
   // Redux state selectors
+  const navigate404Page = useSelector((state) => state.provider.badId);
   const questions = useSelector((state) => state.provider.polls);
   const users = useSelector((state) => state.provider.users);
   const userAuth = useSelector((state) => state.provider.authedUser);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -35,19 +37,28 @@ const PollQuestion = ({ questionId }) => {
       : "optionTwo"
     : "optionOne";
   // Set user data when author is available
+
+  useEffect(() => {
+    if (navigate404Page) {
+      navigate("/questions/bad_id");
+    }
+  }, []);
+
   useEffect(() => {
     if (author) {
       setUser(author);
       setLoading(false);
     } else {
-      navigate("/nomatch");
-      setLoading(false);
+      if (!navigate404Page) {
+        console.log("badi");
+        dispatch(setBadId(true));
+        setLoading(false);
+      }
     }
-  }, [author, navigate]);
+  }, [author]);
 
   // Check if the user has voted on the poll
   useEffect(() => {
-    console.log(question);
     if (userAuth.id !== "" && question) {
       setHasVote(
         question?.optionOne?.votes?.some((item) => item === userAuth?.id?.id) ||
@@ -160,8 +171,8 @@ const PollQuestion = ({ questionId }) => {
             </div>
           </div>
           <Radio.Group onChange={onOptionChange}>
-            <Radio value="optionOne">{question.optionOne.text}</Radio>
-            <Radio value="optionTwo">{question.optionTwo.text}</Radio>
+            <Radio value="optionOne">{question?.optionOne?.text}</Radio>
+            <Radio value="optionTwo">{question?.optionTwo?.text}</Radio>
           </Radio.Group>
           <div style={{ marginTop: 16 }}>
             <Button
