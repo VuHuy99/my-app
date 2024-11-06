@@ -50,7 +50,6 @@ const PollQuestion = ({ questionId }) => {
       setLoading(false);
     } else {
       if (!navigate404Page) {
-        console.log("badi");
         dispatch(setBadId(true));
         setLoading(false);
       }
@@ -73,7 +72,7 @@ const PollQuestion = ({ questionId }) => {
   };
 
   // Handle submit action
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (selectedOption) {
       // Destructure question data
       const {
@@ -109,18 +108,18 @@ const PollQuestion = ({ questionId }) => {
       };
 
       // Dispatch updated polls
-      dispatch(setPolls(updatedPolls));
+      await dispatch(setPolls(updatedPolls));
 
       // Update authenticated user's answers
-      dispatch(
+      await dispatch(
         setAuthedUser({
           id: userAuth?.id,
           answers: [...(userAuth?.answers || []), question.id],
         })
       );
 
-      // Navigate to home after submission
-      navigate("/");
+      // Navigate to all of the information in the answered poll is displayed.
+        navigate(`/questions/${questionId}`);
     }
   };
 

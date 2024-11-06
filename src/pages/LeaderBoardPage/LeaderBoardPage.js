@@ -8,7 +8,6 @@ const Leaderboard = () => {
   // Accessing data from the Redux store
   const users = useSelector((state) => state.provider.users) || {};
   const quetionSelector = useSelector((state) => state.provider.polls) || [];
-  console.log("Questions Selector:", Object.values(quetionSelector));
   // Function to calculate the score
   const calculateScore = (user) => {
     if (!quetionSelector) {

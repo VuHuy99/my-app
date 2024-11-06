@@ -5,7 +5,6 @@ import NewPollPage from "./pages/NewPollPage/NewPollPage";
 import LeaderBoardPage from "./pages/LeaderBoardPage/LeaderBoardPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NoMatch from "./pages/NoMatch/NoMatch";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Navbar from "./components/Navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { _getUsers, _getQuestions } from "./services/_DATA";
@@ -41,11 +40,7 @@ function App() {
       const question =
         questions && questions[questionId] ? questions[questionId] : {};
       const author = question ? users[question.author] : null;
-      console.log(currentPath);
-      console.log(questionId);
-      console.log(author);
       if (!author) {
-        console.log("badi");
         dispatch(setBadId(true));
       }
     }
