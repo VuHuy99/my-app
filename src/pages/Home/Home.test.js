@@ -21,6 +21,7 @@ Object.defineProperty(window, "matchMedia", {
 });
 afterEach(cleanup);
 
+
 describe("App Component", () => {
   let store;
 

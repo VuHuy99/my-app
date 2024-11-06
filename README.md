@@ -118,7 +118,7 @@ The **Would You Rather** project is a web application built with React that allo
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
+- Node.js (pls use v18.20.4 to npm i)
 - npm (v6 or higher)
 
 ### Installation
