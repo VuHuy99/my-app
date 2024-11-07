@@ -9,10 +9,10 @@ export const NoMatch = () => {
     dispatch(setBadId(false));
   }, []);
   return (
-    <div textAlign="center" style={{ marginTop: "50px" }}>
+    <div style={{ marginTop: "50px" }}>
       <h1 as="h1">404 - Page Not Found</h1>
       <p>Oops! It seems the page you're looking for doesn't exist.</p>
-      <button primary onClick={() => navigate("/")}>
+      <button  onClick={() => navigate("/")}>
         Go to Home
       </button>
     </div>
